@@ -16,6 +16,7 @@ gem "jquery-rails"
 gem "minitest"
 gem "powder" # Pow related gem
 gem "pry-rails" # not in dev group in case running via prod/staging @ a training
+gem "pry-nav"
 gem "puma"
 gem "rails-perftest"
 gem "rake"
