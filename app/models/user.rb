@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :password, presence: true,
                        confirmation: true,
                        length: {within: 6..40},
+                       format: { with: /\A.*(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\@\#\$\%\^\&\+\=]).*\z/, message: "password policy" },
                        on: :create,
                        if: :password
 
