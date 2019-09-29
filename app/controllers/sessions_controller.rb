@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    path = params[:url].present? ? params[:url] : home_dashboard_index_path
     begin
       # Normalize the email address, why not
       user = User.authenticate(params[:email].to_s.downcase, params[:password])
@@ -23,7 +22,7 @@ class SessionsController < ApplicationController
       else
         session[:user_id] = user.id
       end
-      redirect_to path
+      redirect_to verified_post_url_path
     else
       flash[:error] = e.message
       render "sessions/new"
@@ -35,4 +34,15 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_path
   end
+
+  private
+
+  def verified_post_url_path(default_path: home_dashboard_index_path)
+    path = params[:url] || default_path
+    Rails.application.routes.recognize_path(path)
+  rescue ActionController::RoutingError
+    request.reset_session
+    default_path
+  end
+
 end
