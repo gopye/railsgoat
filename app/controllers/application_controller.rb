@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActionController::InvalidAuthenticityToken do |exception|
     session.clear
-    redirect_to root_path
   end
 
   private
