@@ -43,7 +43,7 @@ class User < ApplicationRecord
     auth = nil
     user = find_by_email(email)
     raise "#{email} doesn't exist!" if !(user)
-    if user.password == BCrypt::Password.create(self.password)
+    if user.password == BCrypt::Password.create(password)
       auth = user
     else
       raise "Incorrect Password!"
@@ -53,7 +53,7 @@ class User < ApplicationRecord
 
   def hash_password
     if will_save_change_to_password?
-      self.password = BCrypt::Password.create(self.password)
+      self.password = BCrypt::Password.create(password)
     end
   end
 
