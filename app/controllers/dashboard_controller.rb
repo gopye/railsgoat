@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class DashboardController < ApplicationController
-  before_action :administrative
+  # before_action :administrative
   skip_before_action :has_info
   layout false, only: [:change_graph]
 
