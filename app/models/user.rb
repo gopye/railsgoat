@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require "encryption"
+require "bcrypt"
 
 class User < ApplicationRecord
   validates :password, presence: true,
@@ -42,7 +43,7 @@ class User < ApplicationRecord
     auth = nil
     user = find_by_email(email)
     raise "#{email} doesn't exist!" if !(user)
-    if user.password == Digest::MD5.hexdigest(password)
+    if user.password == BCrypt::Password.create(self.password)
       auth = user
     else
       raise "Incorrect Password!"
@@ -52,7 +53,7 @@ class User < ApplicationRecord
 
   def hash_password
     if will_save_change_to_password?
-      self.password = Digest::MD5.hexdigest(self.password)
+      self.password = BCrypt::Password.create(self.password)
     end
   end
 
