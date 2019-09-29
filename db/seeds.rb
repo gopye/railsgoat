@@ -7,8 +7,8 @@ users = [
   {
     email: "admin@metacorp.com",
     admin: true,
-    password: "admin1234",
-    password_confirmation: "admin1234",
+    password: "admin1234!#AA",
+    password_confirmation: "admin1234!#AA",
     first_name: "Admin",
     last_name: "",
   },
@@ -16,8 +16,8 @@ users = [
   {
     email: "jmmastey@metacorp.com",
     admin: false,
-    password: "railsgoat!",
-    password_confirmation: "railsgoat!",
+    password: "admin1234!#AA",
+    password_confirmation: "admin1234!#AA",
     first_name: "Joseph",
     last_name: "Mastey",
   },
@@ -25,8 +25,8 @@ users = [
   {
     email: "jack@metacorp.com",
     admin: false,
-    password: "yankeessuck",
-    password_confirmation: "yankeessuck",
+    password: "admin1234!#AA",
+    password_confirmation: "admin1234!#AA",
     first_name: "Jack",
     last_name: "Mannino",
   },
@@ -34,8 +34,8 @@ users = [
   {
     email: "jim@metacorp.com",
     admin: false,
-    password: "alohaowasp",
-    password_confirmation: "alohaowasp",
+    password: "admin1234!#AA",
+    password_confirmation: "admin1234!#AA",
     first_name: "Jim",
     last_name: "Manico",
   },
@@ -43,8 +43,8 @@ users = [
   {
     email: "mike@metacorp.com",
     admin: false,
-    password: "motocross1445",
-    password_confirmation: "motocross1445",
+    password: "admin1234!#AA",
+    password_confirmation: "admin1234!#AA",
     first_name: "Mike",
     last_name: "McCabe",
   },
@@ -52,8 +52,8 @@ users = [
   {
     email: "ken@metacorp.com",
     admin: false,
-    password: "citrusblend",
-    password_confirmation: "citrusblend",
+    password: "admin1234!#AA",
+    password_confirmation: "admin1234!#AA",
     first_name: "Ken",
     last_name: "Johnson",
   },
@@ -61,8 +61,8 @@ users = [
   {
     email: "admin2@metacorp.com",
     admin: false,
-    password: "adminadmin",
-    password_confirmation: "adminadmin",
+    password: "admin1234!#AA",
+    password_confirmation: "admin1234!#AA",
     first_name: "Admin2",
     last_name: "",
   }
