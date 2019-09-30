@@ -6,13 +6,19 @@ class BenefitFormsController < ApplicationController
   end
 
   def download
-   begin
-     path = params[:name]
-     file = params[:type].constantize.new(path)
-     send_file file, disposition: "attachment"
-   rescue
-     redirect_to user_benefit_forms_path(user_id: current_user.id)
-   end
+    begin
+      path = params[:name]
+      file = params[:type].constantize.new(path)
+
+      if !path.starts_with?("public/docs")
+        redirect_to user_benefit_forms_path(user_id: current_user.id), status: 404
+        return
+      end
+
+      send_file file, disposition: "attachment"
+    rescue
+      redirect_to user_benefit_forms_path(user_id: current_user.id)
+    end
   end
 
   def upload
