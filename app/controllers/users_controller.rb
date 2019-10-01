@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def update
     message = false
 
-    user = User.where("id = '#{params[:user][:id]}'")[0]
+    user = User.find(user_params_without_password[:id])
 
     if user
       user.update(user_params_without_password)
@@ -52,6 +52,6 @@ class UsersController < ApplicationController
 
   # unpermitted attributes are ignored in production
   def user_params_without_password
-    params.require(:user).permit(:email, :admin, :first_name, :last_name)
+    params.require(:user).permit(:id, :email, :admin, :first_name, :last_name)
   end
 end
